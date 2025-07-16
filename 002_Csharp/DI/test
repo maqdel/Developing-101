@@ -1,2 +1,0 @@
-var vgpDIC = new VideoGamePlayerDI_C();
-vgpDIC.Play(new XboxDI());

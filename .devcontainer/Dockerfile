@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/dotnet:1-8.0
+FROM mcr.microsoft.com/devcontainers/dotnet:1-9.0
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_14.x | bash -
 RUN apt-get install -y nodejs \
