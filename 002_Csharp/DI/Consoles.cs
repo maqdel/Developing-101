@@ -32,7 +32,7 @@ namespace DI
   {
     public void Name()
     {
-      Console.WriteLine("witch");
+      Console.WriteLine("Switch");
     }
 
     public void Start()

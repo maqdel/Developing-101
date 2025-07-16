@@ -10,13 +10,24 @@ namespace DI
             var vgp = new VideoGamePlayer();
             vgp.Play();
 
-            Console.WriteLine("--- With DI");
-            var vgpDI = new VideoGamePlayerDI(new PlaystationDI());
-            vgpDI.Play();
-            vgpDI = new VideoGamePlayerDI(new XboxDI());
-            vgpDI.Play();
-            vgpDI = new VideoGamePlayerDI(new SwitchDI());
-            vgpDI.Play();
+            Console.WriteLine("--- DI via Constructor");
+            var vgpDIA = new VideoGamePlayerDI_A(new PlaystationDI());
+            vgpDIA.Play();
+            vgpDIA = new VideoGamePlayerDI_A(new XboxDI());
+            vgpDIA.Play();
+            vgpDIA = new VideoGamePlayerDI_A(new SwitchDI());
+            vgpDIA.Play();
+
+            Console.WriteLine("--- DI via Setter");
+            var vgpDIB = new VideoGamePlayerDI_B();
+            vgpDIB.Console = new PlaystationDI();
+            vgpDIB.Play();
+            vgpDIB.Console = new SwitchDI();
+            vgpDIB.Play();
+
+            Console.WriteLine("--- DI via Method");
+            var vgpDIC = new VideoGamePlayerDI_C();
+            vgpDIC.Play(new XboxDI());
 
             Console.ReadLine();
         }

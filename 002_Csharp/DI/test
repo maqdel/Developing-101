@@ -1,13 +1,2 @@
-public class VideoGamePlayerDI
-{
-    private readonly IConsole console;
-    public VideoGamePlayerDI(IConsole console)
-    {
-        this.console = console;
-    }
-    public void Play()
-    {
-        console.Name();
-        console.Start();
-    }
-}
+var vgpDIC = new VideoGamePlayerDI_C();
+vgpDIC.Play(new XboxDI());
