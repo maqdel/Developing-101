@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using EF.Models;
+using EFCDB.Models;
 using System;
 
-namespace EF
+namespace EFCDB
 {
     public class DataContext : DbContext
     {

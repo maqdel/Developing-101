@@ -2,14 +2,17 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System;
 
-namespace EF.Models
+namespace EFCDB.Models
 {
-    [Table("Consoles", Schema = "dbo")]
-    public class ConsoleModel
+    [Table("Games", Schema = "dbo")]
+    public class GameModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        [ForeignKey("ConsoleId")]
+        public ConsoleModel Console { get; set; }        
 
         [Required]
         [Column(TypeName = "varchar(50)")]
