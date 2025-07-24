@@ -3,6 +3,7 @@ Examples, tips, tricks, and other programming stuff
 
 ## Projects
 - C#
+    - 2025-07-24 #NET - Create a DB (Codefirst) with C# ([maqdel's blog post](https://maqdel.wordpress.com))
     - 2025-07-16 Dependency Injection(DI) with C# ([maqdel's blog post](https://maqdel.wordpress.com/2025/07/16/wthi-dependency-injection-di-with-c/))
 - Codespaces
     - 2025-07-18 Update environment from .Net from 8 to 9 ([maqdel's blog post](https://maqdel.wordpress.com/))

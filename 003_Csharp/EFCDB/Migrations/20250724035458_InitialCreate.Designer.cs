@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EFCDB.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250723234211_InitialCreate")]
+    [Migration("20250724035458_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -20,10 +20,40 @@ namespace EFCDB.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("ProductVersion", "9.0.7")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
+
+            modelBuilder.Entity("EFCDB.Models.BrandModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedIn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<bool>("Enabled")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime>("UpdatedIn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Brands", "dbo");
+                });
 
             modelBuilder.Entity("EFCDB.Models.ConsoleModel", b =>
                 {
@@ -50,7 +80,12 @@ namespace EFCDB.Migrations
                     b.Property<DateTime>("UpdatedIn")
                         .HasColumnType("timestamp without time zone");
 
+                    b.Property<int?>("brandId")
+                        .HasColumnType("integer");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("brandId");
 
                     b.ToTable("Consoles", "dbo");
                 });
@@ -88,6 +123,15 @@ namespace EFCDB.Migrations
                     b.HasIndex("ConsoleId");
 
                     b.ToTable("Games", "dbo");
+                });
+
+            modelBuilder.Entity("EFCDB.Models.ConsoleModel", b =>
+                {
+                    b.HasOne("EFCDB.Models.BrandModel", "Brand")
+                        .WithMany()
+                        .HasForeignKey("brandId");
+
+                    b.Navigation("Brand");
                 });
 
             modelBuilder.Entity("EFCDB.Models.GameModel", b =>

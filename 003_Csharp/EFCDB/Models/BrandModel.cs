@@ -4,15 +4,12 @@ using System;
 
 namespace EFCDB.Models
 {
-    [Table("Consoles", Schema = "dbo")]
-    public class ConsoleModel
+    [Table("Brands", Schema = "dbo")]
+    public class BrandModel
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-
-        [ForeignKey("brandId")]
-        public BrandModel Brand { get; set; }       
 
         [Required]
         [Column(TypeName = "varchar(50)")]
