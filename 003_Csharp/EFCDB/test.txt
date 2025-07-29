@@ -1,0 +1,10 @@
+modelBuilder.Entity<ConsoleModel>().HasData(
+    new ConsoleModel { Id = 1, Name = "PlayStation 5", Description = "", BrandId = 1, Enabled = true, CreatedIn = createdIn, UpdatedIn = updatedIn },
+    new ConsoleModel { Id = 2, Name = "Xbox Series X", Description = "", BrandId = 2, Enabled = true, CreatedIn = createdIn, UpdatedIn = updatedIn },
+    new ConsoleModel { Id = 3, Name = "Nintendo Switch", Description = "", BrandId = 3, Enabled = true, CreatedIn = createdIn, UpdatedIn = updatedIn }
+
+modelBuilder.Entity<GameModel>().HasData(
+    new GameModel { Id = 1, Name = "Demon's Souls", Description = "", ConsoleId = 1, Enabled = true, CreatedIn = createdIn, UpdatedIn = updatedIn },
+    new GameModel { Id = 2, Name = "Halo Infinite", Description = "", ConsoleId = 2, Enabled = true, CreatedIn = createdIn, UpdatedIn = updatedIn },
+    new GameModel { Id = 3, Name = "The Legend of Zelda: Breath of the Wild", Description = "", ConsoleId = 3, Enabled = true, CreatedIn = createdIn, UpdatedIn = updatedIn }
+);

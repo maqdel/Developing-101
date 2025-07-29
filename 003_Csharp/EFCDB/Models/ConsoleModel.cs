@@ -11,7 +11,9 @@ namespace EFCDB.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [ForeignKey("brandId")]
+        public int BrandId { get; set; }
+
+        [ForeignKey("BrandId")]
         public BrandModel Brand { get; set; }       
 
         [Required]

@@ -11,6 +11,8 @@ namespace EFCDB.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        public int ConsoleId { get; set; }
+
         [ForeignKey("ConsoleId")]
         public ConsoleModel Console { get; set; }        
 
